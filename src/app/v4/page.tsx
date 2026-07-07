@@ -453,6 +453,35 @@ function Pathways() {
   );
 }
 
+// Cole aqui o link do Calendly quando estiver pronto (opção "quero escalar").
+// Enquanto estiver vazio, esses leads são direcionados ao WhatsApp do consultor.
+const CALENDLY_URL = "";
+const GRUPO_WHATSAPP_URL = "https://chat.whatsapp.com/JnhDLWvJMXn3Dw7dQKvLcp";
+const CONSULTOR_WHATSAPP_URL = "https://wa.me/5511956370650?text=Sou%20empres%C3%A1rio%20e%20quero%20estruturar%20minha%20equipe%20comercial";
+
+const REDIRECT_BY_MOMENTO: Record<string, string> = {
+  'mei': GRUPO_WHATSAPP_URL,
+  'centralizo': GRUPO_WHATSAPP_URL,
+  'sem-processo': CONSULTOR_WHATSAPP_URL,
+  'escalar': CALENDLY_URL || CONSULTOR_WHATSAPP_URL,
+};
+
+// Converte os valores deste formulário para o contrato da API /api/submit
+const MOMENTO_TO_API: Record<string, string> = {
+  'mei': 'mei',
+  'centralizo': 'eupresa',
+  'sem-processo': 'equipe_sem_processo',
+  'escalar': 'equipe_escalar',
+};
+
+const FATURAMENTO_TO_API: Record<string, string> = {
+  'Ate 10k': 'under_10k',
+  'De 10k a 80k': '10k_to_80k',
+  'De 80k a 300k': '80k_to_300k',
+  'De 300k a 1M': '300k_to_1m',
+  'Acima de 1M': 'over_1m',
+};
+
 function LeadForm() {
   const [formData, setFormData] = useState({
     nome: '',
@@ -462,11 +491,37 @@ function LeadForm() {
     faturamento: '',
     momento: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(formData);
-    // Add external form handler integration here
+    if (isSubmitting) return;
+    setIsSubmitting(true);
+
+    try {
+      await fetch('/api/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.nome,
+          phone: formData.whatsapp,
+          email: formData.email,
+          cnpj: formData.cnpj,
+          momento: MOMENTO_TO_API[formData.momento] || formData.momento,
+          revenue: FATURAMENTO_TO_API[formData.faturamento] || formData.faturamento,
+        }),
+      });
+    } catch (error) {
+      // Mesmo se a gravação falhar, o lead segue para o destino correto
+      console.error('Erro ao salvar lead na planilha', error);
+    }
+
+    const destino = REDIRECT_BY_MOMENTO[formData.momento];
+    if (destino) {
+      window.location.href = destino;
+    } else {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -530,8 +585,8 @@ function LeadForm() {
               </select>
             </div>
 
-            <button type="submit" className={`${cinzel.className} w-full py-5 mt-8 bg-[#A99340] hover:bg-[#8c7934] text-[#F9F7F3] rounded-sm font-bold text-xl transition-all transform hover:scale-[1.02] shadow-[0_0_20px_rgba(169,147,64,0.2)] flex justify-center items-center tracking-wide`}>
-              Solicitar Reunião Estratégica
+            <button type="submit" disabled={isSubmitting} className={`${cinzel.className} w-full py-5 mt-8 bg-[#A99340] hover:bg-[#8c7934] text-[#F9F7F3] rounded-sm font-bold text-xl transition-all transform hover:scale-[1.02] shadow-[0_0_20px_rgba(169,147,64,0.2)] flex justify-center items-center tracking-wide disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100`}>
+              {isSubmitting ? 'Enviando...' : 'Solicitar Reunião Estratégica'}
             </button>
           </form>
         </div>
