@@ -453,9 +453,7 @@ function Pathways() {
   );
 }
 
-// Cole aqui o link do Calendly quando estiver pronto (opção "quero escalar").
-// Enquanto estiver vazio, esses leads são direcionados ao WhatsApp do consultor.
-const CALENDLY_URL = "";
+const CALENDLY_URL = "https://calendly.com/cesarcarvalho/30min";
 const GRUPO_WHATSAPP_URL = "https://chat.whatsapp.com/JnhDLWvJMXn3Dw7dQKvLcp";
 const CONSULTOR_WHATSAPP_URL = "https://wa.me/5511956370650?text=Sou%20empres%C3%A1rio%20e%20quero%20estruturar%20minha%20equipe%20comercial";
 
