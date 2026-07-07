@@ -121,7 +121,7 @@ export default function V2LandingPage() {
               <Crosshair className="w-8 h-8 text-white/40 mb-6" />
               <h3 className="text-2xl font-medium mb-3">Symptom: Inconsistent Pipeline</h3>
               <p className="text-white/60 text-sm leading-relaxed mb-6">
-                Relying on "hero reps" or sheer volume rather than a deterministic, mathematically sound qualification matrix.
+                Relying on &quot;hero reps&quot; or sheer volume rather than a deterministic, mathematically sound qualification matrix.
               </p>
               <div className="mt-auto pt-6 border-t border-white/10 flex items-center justify-between">
                 <span className="text-xs text-white/40 uppercase tracking-wider">Root Cause Analysis</span>

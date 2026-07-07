@@ -150,7 +150,7 @@ function PainDiagnostic() {
                 </li>
               </ul>
               <div className="mt-12 pt-10 border-t border-[#222B30]/10 text-center">
-                <p className={`${cardo.className} italic text-2xl md:text-3xl text-[#062237] mb-8 leading-snug`}>"O gargalo não é falta de esforço. É falta de estrutura."</p>
+                <p className={`${cardo.className} italic text-2xl md:text-3xl text-[#062237] mb-8 leading-snug`}>&quot;O gargalo não é falta de esforço. É falta de estrutura.&quot;</p>
                 <a href="#caminhos" className={`${raleway.className} inline-block px-10 py-4 border-2 border-[#062237] text-[#062237] hover:bg-[#062237] hover:text-white rounded-sm font-bold text-lg transition-colors uppercase tracking-widest`}>
                   Este sou eu
                 </a>
@@ -198,7 +198,7 @@ function PainDiagnostic() {
                 </li>
               </ul>
               <div className="mt-12 pt-10 border-t border-[#222B30]/10 text-center">
-                <p className={`${cardo.className} italic text-2xl md:text-3xl text-[#062237] mb-8 leading-snug`}>"Sua equipe não precisa de mais pressão. Precisa de um caminho claro."</p>
+                <p className={`${cardo.className} italic text-2xl md:text-3xl text-[#062237] mb-8 leading-snug`}>&quot;Sua equipe não precisa de mais pressão. Precisa de um caminho claro.&quot;</p>
                 <a href="#caminhos" className={`${raleway.className} inline-block px-10 py-4 border-2 border-[#062237] text-[#062237] hover:bg-[#062237] hover:text-white rounded-sm font-bold text-lg transition-colors uppercase tracking-widest`}>
                   Este sou eu
                 </a>
@@ -260,7 +260,7 @@ function Authority() {
 
               <div className="pl-6 border-l-2 border-[#A99340] my-8 py-2">
                 <p className={`${cardo.className} text-2xl text-[#F9F7F3] italic leading-relaxed`}>
-                  "Vender é um ato de consciência. Liderar é despertar grandeza em outros. Minha missão é guiar empresários a expandirem seus resultados através da performance, da verdade e da estrutura."
+                  &quot;Vender é um ato de consciência. Liderar é despertar grandeza em outros. Minha missão é guiar empresários a expandirem seus resultados através da performance, da verdade e da estrutura.&quot;
                 </p>
               </div>
 
