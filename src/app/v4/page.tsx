@@ -454,12 +454,12 @@ function Pathways() {
 }
 
 const CALENDLY_URL = "https://calendly.com/cesarcarvalho/30min";
-const GRUPO_WHATSAPP_URL = "https://chat.whatsapp.com/JnhDLWvJMXn3Dw7dQKvLcp";
+const WHATSAPP_INICIANTE_URL = "https://api.whatsapp.com/send/?phone=5511956370650&text=Sou+empres%C3%A1rio+e+quero+estruturar+minha+equipe+comercial&type=phone_number&app_absent=0";
 const CONSULTOR_WHATSAPP_URL = "https://wa.me/5511956370650?text=Sou%20empres%C3%A1rio%20e%20quero%20estruturar%20minha%20equipe%20comercial";
 
 const REDIRECT_BY_MOMENTO: Record<string, string> = {
-  'mei': GRUPO_WHATSAPP_URL,
-  'centralizo': GRUPO_WHATSAPP_URL,
+  'mei': WHATSAPP_INICIANTE_URL,
+  'centralizo': WHATSAPP_INICIANTE_URL,
   'sem-processo': CONSULTOR_WHATSAPP_URL,
   'escalar': CALENDLY_URL || CONSULTOR_WHATSAPP_URL,
 };
