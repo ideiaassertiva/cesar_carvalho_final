@@ -105,60 +105,12 @@ function PainDiagnostic() {
     <section className="py-32 bg-white relative">
       <div className="container mx-auto px-6 max-w-7xl">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeIn} className="text-center mb-24">
-          <h2 className={`${cinzel.className} text-4xl md:text-5xl font-bold text-[#062237] mb-6`}>Qual é o seu cenário hoje?</h2>
+          <h2 className={`${cinzel.className} text-4xl md:text-5xl font-bold text-[#062237] mb-6`}>Você se identifica com isso?</h2>
           <div className="w-20 h-1 bg-[#A99340] mx-auto"></div>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16">
-          {/* Card 1 */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={fadeIn}
-            className="flex flex-col h-full bg-white border border-[#222B30]/10 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all overflow-hidden relative"
-          >
-            <div className="absolute top-0 w-full h-1 bg-[#A99340]"></div>
-            <div className="p-10 md:p-14 flex flex-col h-full">
-              <div className="mb-10 text-center">
-                <h3 className={`${cinzel.className} text-3xl font-bold text-[#062237]`}>O dono que faz tudo sozinho</h3>
-              </div>
-              <ul className={`${raleway.className} space-y-8 text-[#222B30] text-lg flex-1`}>
-                <li className="flex items-start gap-4">
-                  <CheckCircle2 className="w-6 h-6 text-[#A99340] shrink-0 mt-1" />
-                  <p>Você vende, atende, administra e ainda tenta crescer — ao mesmo tempo.</p>
-                </li>
-                <li className="flex items-start gap-4">
-                  <CheckCircle2 className="w-6 h-6 text-[#A99340] shrink-0 mt-1" />
-                  <p>Quando você para o faturamento para junto.</p>
-                </li>
-                <li className="flex items-start gap-4">
-                  <CheckCircle2 className="w-6 h-6 text-[#A99340] shrink-0 mt-1" />
-                  <p>Já tentou contratar, mas não deu certo porque não havia processo.</p>
-                </li>
-                <li className="flex items-start gap-4">
-                  <CheckCircle2 className="w-6 h-6 text-[#A99340] shrink-0 mt-1" />
-                  <p>Sabe que precisa se organizar, mas o dia a dia não deixa espaço.</p>
-                </li>
-                <li className="flex items-start gap-4">
-                  <CheckCircle2 className="w-6 h-6 text-[#A99340] shrink-0 mt-1" />
-                  <p>Trabalha mais do que nunca e ainda não sente que está avançando.</p>
-                </li>
-                <li className="flex items-start gap-4">
-                  <CheckCircle2 className="w-6 h-6 text-[#A99340] shrink-0 mt-1" />
-                  <p>Tem potencial real, mas sem estrutura ele não se converte em resultado</p>
-                </li>
-              </ul>
-              <div className="mt-12 pt-10 border-t border-[#222B30]/10 text-center">
-                <p className={`${cardo.className} italic text-2xl md:text-3xl text-[#062237] mb-8 leading-snug`}>&quot;O gargalo não é falta de esforço. É falta de estrutura.&quot;</p>
-                <a href="#caminhos" className={`${raleway.className} inline-block px-10 py-4 border-2 border-[#062237] text-[#062237] hover:bg-[#062237] hover:text-white rounded-sm font-bold text-lg transition-colors uppercase tracking-widest`}>
-                  Este sou eu
-                </a>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Card 2 */}
+        <div className="max-w-2xl mx-auto">
+          {/* Card */}
           <motion.div
             initial="hidden"
             whileInView="visible"
