@@ -353,9 +353,8 @@ function Pathways() {
       <div className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-10 pointer-events-none" style={{ backgroundImage: 'url("/images/fundo-textura-2.png")' }}></div>
       <div className="container mx-auto px-6 max-w-6xl relative z-10">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} className="text-center mb-16">
-          <h2 className={`${cinzel.className} text-4xl md:text-5xl font-bold text-[#F9F7F3] mb-6`}>Comigo, você tem dois caminhos</h2>
+          <h2 className={`${cinzel.className} text-4xl md:text-5xl font-bold text-[#F9F7F3] mb-6`}>Comigo, podemos trilhar esse caminho</h2>
           <div className="w-20 h-1 bg-[#A99340] mx-auto mb-6"></div>
-          <p className={`${raleway.className} text-xl text-[#F9F7F3]/80 max-w-2xl mx-auto`}>Cada um pensado para um momento diferente. Qual é o seu?</p>
         </motion.div>
 
         <motion.div
@@ -365,87 +364,43 @@ function Pathways() {
           variants={fadeIn}
           className="bg-transparent"
         >
-          {/* Layout usando Grid para separar como duas colunas distintas com espaçamento no meio */}
-          <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-
-            {/* Coluna 1 */}
-            <div className="flex flex-col bg-[#142e42]/80 border border-white/20 rounded-sm overflow-hidden">
-              <div className={`${cinzel.className} p-6 md:p-8 border-b border-white/20 text-2xl md:text-3xl text-[#A99340] font-bold bg-[#142e42] text-center uppercase tracking-widest min-h-[140px] flex items-center justify-center`}>
-                Estruturação Comercial para Empresas
-              </div>
-              <div className="p-6 md:p-8 border-b border-white/20 text-white text-lg bg-[#142e42]/90 text-center font-medium min-h-[100px] flex items-center justify-center">
-                Para empresas com equipe ou em fase de organização comercial.
-              </div>
-              <div className="p-6 md:p-8 border-b border-white/20 text-white/90 text-lg leading-relaxed bg-[#142e42]/60 min-h-[220px]">
-                Se sua empresa precisa sair do improviso, ter processos definidos, indicadores funcionando e uma equipe que vende com consistência, <strong className="text-white font-bold">esse é o caminho</strong>. Vamos construir a base comercial que sua operação precisa para crescer sem depender da sua presença constante.
-              </div>
-              <div className="p-6 md:p-8 bg-[#142e42]/40 flex-1 flex flex-col">
-                <span className={`${cardo.className} block mb-6 font-bold text-[#A99340] text-xl`}>O que está incluso:</span>
-                <ul className="space-y-4 mb-10 flex-1">
-                  {[
-                    'Diagnóstico completo da operação comercial',
-                    'Estruturação do processo de vendas',
-                    'Definição e implantação de indicadores',
-                    'Organização da rotina e cadência comercial',
-                    'Alinhamento entre liderança, equipe e execução',
-                    'Previsibilidade real no faturamento'
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-start text-white/90">
-                      <CheckCircle2 className="w-5 h-5 text-[#A99340] mr-3 shrink-0 mt-0.5" />
-                      <span className="text-lg">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="flex justify-center mt-auto pt-8">
-                  <a
-                    href="#lead-form"
-                    className={`${raleway.className} px-10 py-4 bg-[#A99340] hover:bg-[#8c7934] text-white rounded-sm font-bold text-lg transition-colors shadow-[0_0_15px_rgba(169,147,64,0.4)] uppercase tracking-widest text-center`}
-                  >
-                    Esse é o meu caminho
-                  </a>
-                </div>
+          {/* Layout centralizado em uma coluna */}
+          <div className="max-w-3xl mx-auto flex flex-col bg-[#1a354a]/80 border border-white/20 rounded-sm overflow-hidden">
+            <div className={`${cinzel.className} p-6 md:p-8 border-b border-white/20 text-2xl md:text-3xl text-[#A99340] font-bold bg-[#1a354a] text-center uppercase tracking-widest min-h-[140px] flex items-center justify-center`}>
+              Programa de Acompanhamento para Empreendedores
+            </div>
+            <div className="p-6 md:p-8 border-b border-white/20 text-white text-lg bg-[#1a354a]/90 text-center font-medium min-h-[100px] flex items-center justify-center">
+              Para quem quer aprender a vender com estratégia e consistência.
+            </div>
+            <div className="p-6 md:p-8 border-b border-white/20 text-white/90 text-lg leading-relaxed bg-[#1a354a]/60 min-h-[220px]">
+              Se você é empreendedor e quer aprender a vender seus produtos ou serviços de forma previsível, estratégica e escalável — esse programa foi feito para você. Com acompanhamento próximo e personalizado ao longo do tempo, construímos juntos sua máquina comercial.
+            </div>
+            <div className="p-6 md:p-8 bg-[#1a354a]/40 flex-1 flex flex-col">
+              <span className={`${cardo.className} block mb-6 font-bold text-[#A99340] text-xl`}>O que está incluso:</span>
+              <ul className="space-y-4 mb-10 flex-1">
+                {[
+                  'Clareza de oferta e posicionamento comercial',
+                  'Roteiro e processo de vendas personalizado',
+                  'Desenvolvimento de linguagem e autoridade',
+                  'Acompanhamento mensal com feedback técnico',
+                  'Modelos de 3, 6 ou 12 meses conforme necessidade',
+                  'Evolução contínua com suporte direto'
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start text-white/90">
+                    <CheckCircle2 className="w-5 h-5 text-[#A99340] mr-3 shrink-0 mt-0.5" />
+                    <span className="text-lg">{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="flex justify-center mt-auto pt-8">
+                <a
+                  href="#lead-form"
+                  className={`${raleway.className} px-10 py-4 bg-[#A99340] hover:bg-[#8c7934] text-white rounded-sm font-bold text-lg transition-colors shadow-[0_0_15px_rgba(169,147,64,0.4)] uppercase tracking-widest text-center`}
+                >
+                  Esse é o meu caminho
+                </a>
               </div>
             </div>
-
-            {/* Coluna 2 */}
-            <div className="flex flex-col bg-[#1a354a]/80 border border-white/20 rounded-sm overflow-hidden">
-              <div className={`${cinzel.className} p-6 md:p-8 border-b border-white/20 text-2xl md:text-3xl text-[#A99340] font-bold bg-[#1a354a] text-center uppercase tracking-widest min-h-[140px] flex items-center justify-center`}>
-                Programa de Acompanhamento para Empreendedores
-              </div>
-              <div className="p-6 md:p-8 border-b border-white/20 text-white text-lg bg-[#1a354a]/90 text-center font-medium min-h-[100px] flex items-center justify-center">
-                Para quem quer aprender a vender com estratégia e consistência.
-              </div>
-              <div className="p-6 md:p-8 border-b border-white/20 text-white/90 text-lg leading-relaxed bg-[#1a354a]/60 min-h-[220px]">
-                Se você é empreendedor e quer aprender a vender seus produtos ou serviços de forma previsível, estratégica e escalável — esse programa foi feito para você. Com acompanhamento próximo e personalizado ao longo do tempo, construímos juntos sua máquina comercial.
-              </div>
-              <div className="p-6 md:p-8 bg-[#1a354a]/40 flex-1 flex flex-col">
-                <span className={`${cardo.className} block mb-6 font-bold text-[#A99340] text-xl`}>O que está incluso:</span>
-                <ul className="space-y-4 mb-10 flex-1">
-                  {[
-                    'Clareza de oferta e posicionamento comercial',
-                    'Roteiro e processo de vendas personalizado',
-                    'Desenvolvimento de linguagem e autoridade',
-                    'Acompanhamento mensal com feedback técnico',
-                    'Modelos de 3, 6 ou 12 meses conforme necessidade',
-                    'Evolução contínua com suporte direto'
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-start text-white/90">
-                      <CheckCircle2 className="w-5 h-5 text-[#A99340] mr-3 shrink-0 mt-0.5" />
-                      <span className="text-lg">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="flex justify-center mt-auto pt-8">
-                  <a
-                    href="#lead-form"
-                    className={`${raleway.className} px-10 py-4 bg-[#A99340] hover:bg-[#8c7934] text-white rounded-sm font-bold text-lg transition-colors shadow-[0_0_15px_rgba(169,147,64,0.4)] uppercase tracking-widest text-center`}
-                  >
-                    Esse é o meu caminho
-                  </a>
-                </div>
-              </div>
-            </div>
-
           </div>
         </motion.div>
       </div>
