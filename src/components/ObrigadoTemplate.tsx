@@ -57,19 +57,19 @@ export function ObrigadoTemplate({
         </div>
       </div>
 
-      <div className="container mx-auto px-6 relative z-20 flex flex-col items-center text-center max-w-4xl h-full mt-10 md:mt-20">
+      <div className="container mx-auto px-6 relative z-20 flex flex-col items-center text-center max-w-5xl h-full mt-10 md:mt-20">
 
         <motion.div initial="hidden" animate="visible" variants={fadeIn} className="flex flex-col items-center w-full">
-          <h1 className={`${cinzel.className} text-4xl md:text-5xl font-bold text-[#A99340] tracking-tight leading-tight mb-8 drop-shadow-lg`}>
+          <h1 className={`${cinzel.className} text-4xl md:text-5xl font-bold text-[#A99340] tracking-tight leading-tight mb-8 drop-shadow-lg max-w-4xl mx-auto`}>
             {headline}
           </h1>
 
-          <p className={`${raleway.className} text-xl md:text-2xl text-[#F9F7F3]/90 mb-12 max-w-2xl font-light drop-shadow-md`}>
+          <p className={`${raleway.className} text-xl md:text-2xl text-[#F9F7F3]/90 mb-12 max-w-2xl mx-auto font-light drop-shadow-md`}>
             {subheadline}
           </p>
 
-          {/* Série de vídeos do YouTube */}
-          <div className="w-full max-w-3xl space-y-10 mb-16">
+          {/* Série de vídeos do YouTube — miniplayers lado a lado */}
+          <div className="w-full grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16">
             {videos.map((video, index) => {
               const videoId = extractYouTubeId(video.url);
               return (
@@ -90,8 +90,8 @@ export function ObrigadoTemplate({
                         className="absolute inset-0"
                       />
                     ) : (
-                      <div className="absolute inset-0 flex items-center justify-center text-[#F9F7F3]/40">
-                        <span className={`${raleway.className} text-lg font-medium`}>[ Espaço para o Vídeo do YouTube ]</span>
+                      <div className="absolute inset-0 flex items-center justify-center text-[#F9F7F3]/40 text-center px-3">
+                        <span className={`${raleway.className} text-sm font-medium`}>[ Espaço para o Vídeo do YouTube ]</span>
                       </div>
                     )}
                   </div>
