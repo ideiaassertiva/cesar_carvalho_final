@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { name, phone, email, cnpj, momento, revenue } = body;
+    const { name, phone, email, cnpj, momento, revenue, impedimento, impedimento_outro } = body;
 
     // Formatting values for the sheet
     const momentMap: Record<string, string> = {
@@ -48,11 +48,11 @@ export async function POST(req: Request) {
 
     const response = await sheets.spreadsheets.values.append({
       spreadsheetId: process.env.GOOGLE_SHEET_ID,
-      range: "Página1!A1:G1", // Mude para o nome da sua aba se não for 'Página1' (geralmente Sheet1 em inglês)
+      range: "Página1!A1:I1", // Mude para o nome da sua aba se não for 'Página1' (geralmente Sheet1 em inglês)
       valueInputOption: "USER_ENTERED",
       requestBody: {
         values: [
-          [date, name, phone, email, cnpj, formattedMoment, formattedRevenue]
+          [date, name, phone, email, cnpj, formattedMoment, formattedRevenue, impedimento || "", impedimento_outro || ""]
         ],
       },
     });
