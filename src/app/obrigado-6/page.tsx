@@ -1,10 +1,12 @@
-import { ObrigadoTemplate } from '@/components/ObrigadoTemplate';
+import { ObrigadoTemplate, ObrigadoVideo } from '@/components/ObrigadoTemplate';
+
+// Cole a URL do YouTube em cada "url" quando os vídeos forem escolhidos.
+const videos: ObrigadoVideo[] = [
+  { title: 'Vídeo 1' },
+  { title: 'Vídeo 2' },
+  { title: 'Vídeo 3' },
+];
 
 export default function Obrigado6Page() {
-  return (
-    <ObrigadoTemplate
-      headline="O passo mais importante para aumentar seu faturamento você já deu."
-      subheadline="Recebemos os detalhes do seu momento atual. Enquanto nosso consultor entra em contato, veja abaixo um conteúdo exclusivo que você já pode aplicar na sua operação."
-    />
-  );
+  return <ObrigadoTemplate videos={videos} />;
 }

@@ -12,12 +12,36 @@ const fadeIn = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
 };
 
-interface ObrigadoTemplateProps {
-  headline: string;
-  subheadline?: string;
+export interface ObrigadoVideo {
+  title: string;
+  // Cole aqui a URL completa do YouTube (ex: https://youtu.be/XXXX ou https://www.youtube.com/watch?v=XXXX).
+  // Deixe undefined/vazio para manter o placeholder até o vídeo ser escolhido.
+  url?: string;
 }
 
-export function ObrigadoTemplate({ headline, subheadline }: ObrigadoTemplateProps) {
+function extractYouTubeId(url?: string): string | null {
+  if (!url) return null;
+  const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([a-zA-Z0-9_-]{11})/);
+  return match ? match[1] : null;
+}
+
+const DEFAULT_VIDEOS: ObrigadoVideo[] = [
+  { title: 'Vídeo 1' },
+  { title: 'Vídeo 2' },
+  { title: 'Vídeo 3' },
+];
+
+interface ObrigadoTemplateProps {
+  headline?: string;
+  subheadline?: string;
+  videos?: ObrigadoVideo[];
+}
+
+export function ObrigadoTemplate({
+  headline = 'Obrigado. Recebemos seus dados e em breve nosso consultor entrará em contato.',
+  subheadline = 'Enquanto isso, assista abaixo essa série de vídeos que preparamos pra você resolver o seu problema e já fazer sua primeira venda hoje.',
+  videos = DEFAULT_VIDEOS,
+}: ObrigadoTemplateProps) {
   return (
     <main className="min-h-screen bg-black text-[#F9F7F3] flex flex-col items-center pt-20 pb-20 relative overflow-hidden">
       {/* Imagem de fundo estilo Hero */}
@@ -41,27 +65,39 @@ export function ObrigadoTemplate({ headline, subheadline }: ObrigadoTemplateProp
           </h1>
 
           <p className={`${raleway.className} text-xl md:text-2xl text-[#F9F7F3]/90 mb-12 max-w-2xl font-light drop-shadow-md`}>
-            {subheadline || 'Agora é aguardar o contato do nosso consultor. Enquanto isso, separei conteúdos exclusivos que você pode implementar hoje no seu negócio e já colher os primeiros resultados.'}
+            {subheadline}
           </p>
 
-          {/* Espaço para o vídeo do Youtube */}
-          <div className="w-full max-w-3xl aspect-video bg-[#111] border border-[#222B30]/30 rounded-xl overflow-hidden shadow-2xl relative mb-16">
-            <div className="absolute inset-0 flex items-center justify-center text-[#F9F7F3]/40">
-              <span className={`${raleway.className} text-lg font-medium`}>[ Espaço para o Vídeo do YouTube ]</span>
-            </div>
-            {/*
-            Substituir a div acima por um iframe do YouTube:
-            <iframe
-              width="100%"
-              height="100%"
-              src="https://www.youtube.com/embed/SEU_VIDEO_ID"
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="absolute inset-0"
-            ></iframe>
-            */}
+          {/* Série de vídeos do YouTube */}
+          <div className="w-full max-w-3xl space-y-10 mb-16">
+            {videos.map((video, index) => {
+              const videoId = extractYouTubeId(video.url);
+              return (
+                <div key={index} className="text-left">
+                  <p className={`${raleway.className} text-sm font-bold text-[#A99340] uppercase tracking-widest mb-3`}>
+                    {video.title}
+                  </p>
+                  <div className="w-full aspect-video bg-[#111] border border-[#222B30]/30 rounded-xl overflow-hidden shadow-2xl relative">
+                    {videoId ? (
+                      <iframe
+                        width="100%"
+                        height="100%"
+                        src={`https://www.youtube.com/embed/${videoId}`}
+                        title={video.title}
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        className="absolute inset-0"
+                      />
+                    ) : (
+                      <div className="absolute inset-0 flex items-center justify-center text-[#F9F7F3]/40">
+                        <span className={`${raleway.className} text-lg font-medium`}>[ Espaço para o Vídeo do YouTube ]</span>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
           </div>
 
           <a href="/" className={`${raleway.className} px-8 py-3 border border-[#A99340] text-[#A99340] hover:bg-[#A99340] hover:text-black rounded-sm font-semibold transition-all uppercase tracking-widest text-sm`}>
