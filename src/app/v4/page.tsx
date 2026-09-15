@@ -163,6 +163,35 @@ function PainDiagnostic() {
   );
 }
 
+function Differentiation() {
+  return (
+    <section className="py-24 bg-[#F9F7F3] border-t border-[#222B30]/10 relative">
+      <div className="container mx-auto px-6 max-w-4xl">
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeIn}>
+          <h2 className={`${cinzel.className} text-4xl md:text-5xl font-bold text-[#062237] mb-4 text-center`}>
+            Existem muitas soluções prontas no mercado
+          </h2>
+          <p className={`${cardo.className} italic text-xl md:text-2xl text-[#A99340] text-center mb-12`}>
+            Mas nenhuma se encaixa perfeitamente no seu negócio, sabe por quê?
+          </p>
+
+          <div className={`${raleway.className} space-y-6 text-[#222B30] text-lg leading-relaxed`}>
+            <p>Não é por falta de qualidade. É porque nenhuma foi pensada para o seu negócio.</p>
+            <p>Cursos, fórmulas, métodos replicáveis, consultorias engessadas. Todas são soluções genéricas, construídas para atender a média do mercado.</p>
+            <p>Elas ignoram exatamente o que faz a sua operação ser a sua: seu momento, sua equipe, seu histórico, suas particularidades.</p>
+          </div>
+
+          <div className="mt-10 pt-10 border-t border-[#222B30]/10">
+            <p className={`${raleway.className} text-xl md:text-2xl font-semibold text-[#062237] leading-relaxed`}>
+              Ninguém entende mais do seu negócio do que você. O meu papel não é substituir esse conhecimento por um método de prateleira — é somar a ele um olhar técnico, de fora, experiente, e transformar o que você já sabe em processo, direção e resultado.
+            </p>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
 function Authority() {
   return (
     <section className="py-32 bg-[#062237] relative">
@@ -242,7 +271,7 @@ function Methodology() {
     {
       icon: <BarChart3 className="w-6 h-6 text-[#F9F7F3]" />,
       title: "3. ORGANIZAÇÃO DOS PROCESSOS",
-      description: "Estruturação da operação comercial: roteiro de vendas, padrão de atendimento, cadência de prospecção e funil com etapas claras para todos seguirem."
+      description: "Junto com você, pensamos na estruturação da operação comercial: roteiro de vendas, padrão de atendimento, cadência de prospecção e funil com etapas claras para todos seguirem."
     },
     {
       icon: <Target className="w-6 h-6 text-[#F9F7F3]" />,
@@ -324,9 +353,33 @@ function Pathways() {
             <div className="p-6 md:p-8 border-b border-white/20 text-white text-lg bg-[#1a354a]/90 text-center font-medium min-h-[100px] flex items-center justify-center">
               Para quem quer aprender a vender com estratégia e consistência.
             </div>
-            <div className="p-6 md:p-8 border-b border-white/20 text-white/90 text-lg leading-relaxed bg-[#1a354a]/60 min-h-[220px]">
-              Se você é empreendedor e quer aprender a vender seus produtos ou serviços de forma previsível, estratégica e escalável — esse programa foi feito para você. Com acompanhamento próximo e personalizado ao longo do tempo, construímos juntos sua máquina comercial.
+            <div className="p-6 md:p-8 border-b border-white/20 text-white/90 text-lg leading-relaxed bg-[#1a354a]/60">
+              Se você é o empreendedor que toca o próprio negócio e quer vender mais com previsibilidade no faturamento, este é o seu caminho. Aqui não existe fórmula genérica: eu olho de perto para a sua operação, entendo sua realidade a fundo e construímos juntos, passo a passo, a solução certa para o seu momento. A execução continua nas suas mãos — eu trago a experiência, a direção e o acompanhamento pessoal para que cada passo gere resultado.
             </div>
+
+            <div className="p-6 md:p-8 border-b border-white/20 bg-[#1a354a]/50">
+              <div className="grid md:grid-cols-2 gap-5">
+                <div className="flex items-start gap-4 p-5 rounded-sm border border-white/15 bg-white/5">
+                  <Briefcase className="w-6 h-6 text-white/40 shrink-0 mt-1" />
+                  <div>
+                    <p className={`${raleway.className} text-[11px] font-bold uppercase tracking-widest text-white/40 mb-1.5`}>Isso não é uma mentoria informativa</p>
+                    <p className={`${raleway.className} text-white/70 leading-relaxed`}>
+                      Onde eu te mostro um método pronto e você tenta adaptar sozinho ao seu negócio.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4 p-5 rounded-sm border-2 border-[#A99340] bg-[#A99340]/10 shadow-[0_0_20px_rgba(169,147,64,0.15)]">
+                  <UserCheck className="w-6 h-6 text-[#A99340] shrink-0 mt-1" />
+                  <div>
+                    <p className={`${raleway.className} text-[11px] font-bold uppercase tracking-widest text-[#A99340] mb-1.5`}>É um acompanhamento pessoal</p>
+                    <p className={`${raleway.className} text-white font-semibold leading-relaxed`}>
+                      Eu analiso profundamente a sua operação, ao seu lado, e construímos juntos uma solução feita sob medida para a sua realidade — não um modelo genérico. Adapto anos da minha experiência à sua realidade para te trazer resultado. Quem executa é você, eu trago a direção, a experiência e o acompanhamento em cada passo.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div className="p-6 md:p-8 bg-[#1a354a]/40 flex-1 flex flex-col">
               <span className={`${cardo.className} block mb-6 font-bold text-[#A99340] text-xl`}>O que está incluso:</span>
               <ul className="space-y-4 mb-10 flex-1">
@@ -556,6 +609,7 @@ export default function CesarCarvalhoV4() {
     <main className="min-h-screen bg-[#F9F7F3] text-[#222B30] font-sans selection:bg-[#A99340]/30 selection:text-[#062237]">
       <Hero />
       <PainDiagnostic />
+      <Differentiation />
       <Authority />
       <Methodology />
       <Pathways />
