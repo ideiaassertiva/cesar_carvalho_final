@@ -184,12 +184,12 @@ export default function AplicacaoConcluida() {
             </div>
             <div className="mt-8 text-center">
               <a
-                href={WHATSAPP_URL}
+                href="https://www.instagram.com/cesarcarvalho7/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`${greenButton} text-lg normal-case md:text-2xl`}
               >
-                Falar no WhatsApp
+                Ir para o Instagram
               </a>
             </div>
           </div>
