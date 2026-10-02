@@ -16,7 +16,8 @@ import {
   UserCheck,
   Lock
 } from 'lucide-react';
-import { LeadForm } from '@/components/forms/LeadForm';
+// Formulário externo (Respondi). O formulário interno segue guardado em src/components/forms/LeadForm.tsx.
+const FORM_URL = 'https://form.respondi.app/tPQJKY1l';
 
 const cinzel = Cinzel({ subsets: ['latin'], weight: ['400', '600', '700'] });
 const raleway = Raleway({ subsets: ['latin'], weight: ['300', '400', '500', '600', '700'] });
@@ -109,7 +110,7 @@ function Hero({ copy }: { copy: CesarCarvalhoCopy['hero'] }) {
             {copy.subheadline}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-6">
-            <a href="#lead-form" className={`${raleway.className} w-full sm:w-auto px-8 py-4 bg-[#A99340] hover:bg-[#8c7934] text-[#F9F7F3] rounded-sm font-semibold text-lg transition-all transform hover:scale-105 flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(169,147,64,0.3)]`}>
+            <a href={FORM_URL} className={`${raleway.className} w-full sm:w-auto px-8 py-4 bg-[#A99340] hover:bg-[#8c7934] text-[#F9F7F3] rounded-sm font-semibold text-lg transition-all transform hover:scale-105 flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(169,147,64,0.3)]`}>
               {copy.cta} <ArrowRight className="w-5 h-5" />
             </a>
           </div>
@@ -310,7 +311,7 @@ function Methodology({ copy }: { copy: CesarCarvalhoCopy['methodology'] }) {
       <div className="container mx-auto px-6 max-w-6xl">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} className="mb-16 text-center">
           <h2 className={`${cinzel.className} text-4xl md:text-5xl font-bold text-[#062237] mb-4`}>Meu Método</h2>
-          <h3 className={`${cinzel.className} text-2xl md:text-3xl font-bold text-[#A99340] mb-6`}>Por Trás das Vendas (PTV)</h3>
+          <h3 className={`${cinzel.className} text-2xl md:text-3xl font-bold text-[#A99340] mb-6`}>Implementação Comercial Acelerada (ICA)</h3>
           <div className="w-20 h-1 bg-[#A99340] mx-auto mb-6"></div>
           <p className={`${raleway.className} text-xl text-[#222B30] max-w-3xl mx-auto font-light leading-relaxed`}>
             {copy.intro}
@@ -407,7 +408,7 @@ function Pathways({ copy }: { copy: CesarCarvalhoCopy['pathways'] }) {
               <div className="flex flex-col items-center gap-5 mt-auto pt-8">
                 {copy.showScarcityBadge && <ScarcityBadge />}
                 <a
-                  href="#lead-form"
+                  href={FORM_URL}
                   className={`${raleway.className} px-10 py-4 bg-[#A99340] hover:bg-[#8c7934] text-white rounded-sm font-bold text-lg transition-colors shadow-[0_0_15px_rgba(169,147,64,0.4)] uppercase tracking-widest text-center`}
                 >
                   {copy.cta}
@@ -443,7 +444,6 @@ export function CesarCarvalhoTemplate({ copy }: { copy: CesarCarvalhoCopy }) {
       <Authority copy={copy.authority} />
       <Methodology copy={copy.methodology} />
       <Pathways copy={copy.pathways} />
-      <LeadForm />
       <Footer />
     </main>
   );
