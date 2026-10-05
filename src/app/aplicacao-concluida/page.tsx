@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Roboto, Sora, Montserrat, Roboto_Slab } from 'next/font/google';
+import Script from 'next/script';
 
 const roboto = Roboto({ subsets: ['latin'], weight: ['400', '700'] });
 const sora = Sora({ subsets: ['latin'], weight: ['400', '700'] });
@@ -13,6 +14,8 @@ export const metadata: Metadata = {
 };
 
 const YOUTUBE_ID = 'QPIwJ-tSfaU';
+const GTM_ID = 'GTM-KNKPHVXX';
+const META_PIXEL_ID = '1049672798054478';
 
 const WHATSAPP_URL =
   'https://wa.me/5511913205982?text=' +
@@ -47,19 +50,54 @@ function YouTubeEmbed({ title }: { title: string }) {
 export default function AplicacaoConcluida() {
   return (
     <main className="min-h-screen bg-white text-[#141414]">
+      {/* Google Tag Manager */}
+      <Script id="gtm" strategy="afterInteractive">
+        {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','${GTM_ID}');`}
+      </Script>
+      <noscript
+        dangerouslySetInnerHTML={{
+          __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=${GTM_ID}" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
+        }}
+      />
+
+      {/* Meta Pixel — PageView + Lead (página de obrigado pós-conversão) */}
+      <Script id="meta-pixel" strategy="afterInteractive">
+        {`!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '${META_PIXEL_ID}');
+fbq('track', 'PageView');
+fbq('track', 'Lead');`}
+      </Script>
+      {/* noscript como HTML bruto: o React não cria o <img> no cliente, evitando Lead em dobro */}
+      <noscript
+        dangerouslySetInnerHTML={{
+          __html: `<img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=Lead&noscript=1" />`,
+        }}
+      />
+
       {/* Topo: mensagem de confirmação */}
       <section className={`${roboto.className} bg-white px-4 py-10`}>
-        <div className="mx-auto max-w-[1120px] space-y-4 text-base leading-6">
-          <p className="text-xl font-bold">Parabéns por ter chegado até aqui!</p>
-          <p className="text-xl font-bold">
+        <div className="mx-auto max-w-[1120px] space-y-4 text-lg leading-7">
+          <p className="text-2xl font-bold">Parabéns por ter chegado até aqui!</p>
+          <p className="text-2xl font-bold">
             A análise da sua aplicação acontecerá nas próximas 24 a 72 horas, caso você seja
             aprovado nós enviaremos uma mensagem.
           </p>
-          <p className="text-sm italic text-[#444]">
+          <p className="text-base italic text-[#444]">
             (IMPORTANTE: Seja rápido para responder o nosso time, as vagas são escassas e ultra
             concorridas)
           </p>
-          <p className="text-sm">
+          <p className="text-lg">
             Enquanto isso, <strong>tenho um Recado</strong>, e logo abaixo uma{' '}
             <strong>Masterclass Especial</strong> que resolvi liberar como um{' '}
             <strong className="underline">Presente</strong>
@@ -73,11 +111,11 @@ export default function AplicacaoConcluida() {
           <div className="w-full max-w-[640px]">
             <YouTubeEmbed title="Recado do César Carvalho" />
           </div>
-          <p className="mt-6 max-w-[480px] text-base">
+          <p className="mt-6 max-w-[560px] text-lg">
             Se você é como eu e gosta de velocidade, <strong>você pode TENTAR pular a fila de
             atendimento.</strong>
           </p>
-          <p className="mt-4 max-w-[520px] text-base">
+          <p className="mt-4 max-w-[600px] text-lg">
             Para acelerar o processo da sua aplicação, você pode{' '}
             <span className="underline">tentar pular a fila</span> de atendimento, clicando no
             botão abaixo
@@ -103,8 +141,8 @@ export default function AplicacaoConcluida() {
         }}
       >
         <div className="mx-auto max-w-[1124px] text-center">
-          <p className="text-base">Enquanto isso, Assista:</p>
-          <h2 className={`${slab.className} ${goldText} mt-4 text-xl leading-tight md:text-2xl`}>
+          <p className="text-lg">Enquanto isso, Assista:</p>
+          <h2 className={`${slab.className} ${goldText} mt-4 text-2xl leading-tight md:text-3xl`}>
             3 dicas infalíveis para você fechar uma venda ainda hoje!
           </h2>
           <div className="mx-auto mt-6 w-full max-w-[1000px]">
@@ -123,7 +161,7 @@ export default function AplicacaoConcluida() {
         }}
       >
         <div className="mx-auto max-w-[1066px] rounded-xl border border-[#C6985B]/25 px-4 py-10 md:px-8">
-          <h2 className={`${slab.className} ${goldText} text-center text-xl leading-tight md:text-2xl`}>
+          <h2 className={`${slab.className} ${goldText} text-center text-2xl leading-tight md:text-3xl`}>
             Resultados gerados pelo Programa de Acompanhamento Comercial com César Carvalho.
           </h2>
           <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3">
@@ -158,8 +196,8 @@ export default function AplicacaoConcluida() {
             alt="César Carvalho"
             className="mx-auto w-full max-w-[508px] rounded-[10px] shadow-[0_10px_30px_rgba(0,0,0,0.35)]"
           />
-          <div className={`${montserrat.className} text-lg leading-[1.5] text-black`}>
-            <h2 className={`${slab.className} ${goldText} text-2xl`}>CONHEÇA SEU MENTOR:</h2>
+          <div className={`${montserrat.className} text-lg leading-[1.6] md:text-xl text-black`}>
+            <h2 className={`${slab.className} ${goldText} text-3xl`}>CONHEÇA SEU MENTOR:</h2>
             <div className="mt-6 space-y-4">
               <p>
                 <strong>Meu nome é César Carvalho.</strong> Sou estrategista comercial, mentor e
@@ -197,7 +235,7 @@ export default function AplicacaoConcluida() {
       </section>
 
       {/* Rodapé */}
-      <footer className={`${sora.className} bg-black px-4 py-10 text-center text-xs leading-[18px] text-white`}>
+      <footer className={`${sora.className} bg-black px-4 py-10 text-center text-base leading-7 text-white md:text-lg`}>
         <div className="mx-auto flex max-w-[740px] flex-col items-center gap-4">
           <p>
             Esta apresentação fornecerá etapas práticas para escalar a sua empresa. Ao final da
@@ -210,7 +248,6 @@ export default function AplicacaoConcluida() {
             className="h-24 w-auto object-contain"
           />
           <p>© {new Date().getFullYear()} – Todos os direitos reservados</p>
-          <p>Não associado ao Facebook ou Facebook, Inc.</p>
         </div>
       </footer>
     </main>
