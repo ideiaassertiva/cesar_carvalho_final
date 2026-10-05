@@ -98,9 +98,10 @@ fbq('track', 'Lead');`}
             concorridas)
           </p>
           <p className="text-lg">
-            Enquanto isso, <strong>tenho um Recado</strong>, e logo abaixo uma{' '}
-            <strong>Masterclass Especial</strong> que resolvi liberar como um{' '}
-            <strong className="underline">Presente</strong>
+            Enquanto isso, <strong>tenho um recado importante</strong> para te dar e, logo
+            abaixo, um <strong className="underline">PRESENTE</strong>: Uma{' '}
+            <strong>Masterclass Especial</strong> com 3 dicas infalíveis para você fechar uma venda
+            ainda hoje.
           </p>
         </div>
       </section>
@@ -116,9 +117,7 @@ fbq('track', 'Lead');`}
             atendimento.</strong>
           </p>
           <p className="mt-4 max-w-[600px] text-lg">
-            Para acelerar o processo da sua aplicação, você pode{' '}
-            <span className="underline">tentar pular a fila</span> de atendimento, clicando no
-            botão abaixo
+            Para acelerar o processo da sua aplicação clique no botão abaixo
           </p>
           <a
             href={WHATSAPP_URL}
@@ -126,7 +125,7 @@ fbq('track', 'Lead');`}
             rel="noopener noreferrer"
             className={`${montserrat.className} ${greenButton} mt-6 w-full max-w-[700px] text-lg md:text-2xl`}
           >
-            Clique aqui para ir direto para o WhatsApp
+            Ir direto para WhatsApp
           </a>
         </div>
       </section>
